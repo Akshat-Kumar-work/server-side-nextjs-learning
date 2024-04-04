@@ -1,3 +1,5 @@
+import { NextRequest } from "next/server"
+
 //this is how we write the route handler in express
 // app.get("/api/user",(req,res)=>{
 //     req.json({
@@ -15,3 +17,13 @@ export async function GET(){
     })
 }
 
+export async function POST(req:NextRequest){
+    //extract body
+    //here we are parsing req to json format because we are not using express and dont have express middlewares like express.json() to parse the all req globally
+    const body = await req.json();
+    console.log(body)
+    //store the body in db
+    return Response.json({
+        mess:"data received"
+    })
+}
