@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req:NextRequest,{params}:any){
-    console.log(params)
+export async function GET(req:NextRequest,argument:any){
+
+    //getting dynamic route parameter
+    console.log(argument.params.dynamicRoute)
 
     return NextResponse.json({
         mess:"ok"
