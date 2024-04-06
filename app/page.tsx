@@ -1,5 +1,6 @@
 import axios from "axios";
 import { PrismaClient } from "@prisma/client";
+import Navbar from "@/components/Navbar";
 const prisma = new PrismaClient();
 
 //data fetching is happening on next js server ,
@@ -29,6 +30,9 @@ export default async function Home() {
   const data = await fetchData();
   return (
     <div className=" flex flex-col items-center p-8 gap-6 ">
+
+     <Navbar/>
+
       <div> home page</div>
 
       {/* data of api call of next js backend server throught http endpoints */}
