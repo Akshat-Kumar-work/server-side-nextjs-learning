@@ -17,7 +17,7 @@ const handler = NextAuth({
                 //db validations
 
                 return{
-                    id:"user1"
+                  id:"user1", name:username,password:password,email:"akshat@gmai.com"
                 };
               }
         })

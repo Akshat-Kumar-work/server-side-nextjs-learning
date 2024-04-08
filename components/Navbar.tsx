@@ -13,7 +13,7 @@ const Navbar = () => {
         <button onClick={handleSignIn}>
             Signin by pushing route
         </button>
-        <button onClick={()=>signOut}>
+        <button onClick={()=>signOut()}>
            signOut
         </button>
         <button onClick={()=>signIn()}>
