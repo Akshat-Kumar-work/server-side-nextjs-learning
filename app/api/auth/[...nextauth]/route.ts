@@ -15,13 +15,14 @@ const handler = NextAuth({
                 const username = credentials.username;
                 const password = credentials.password;
                 //db validations
-                
+
                 return{
                     id:"user1"
                 };
               }
         })
-    ]
+    ],
+    secret: process.env.NEXTAUTH_SECRET
 })
 
 export const GET = handler;
