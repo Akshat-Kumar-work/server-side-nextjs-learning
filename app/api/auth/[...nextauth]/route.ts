@@ -1,7 +1,6 @@
 
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { signIn } from "next-auth/react";
 import GoogleProvider from "next-auth/providers/google";
 
 
@@ -35,12 +34,13 @@ const handler = NextAuth({
     callbacks:{
     //jwt callbacks are used to add something into token etc
           jwt:({token,user})=>{
-            console.log(token);
+            //console.log("token from next auth",token);
             token.userId="changed user id"
             return token;
           },
           //session call backs to add extra info to session
           session:({session,token,user}:any)=>{
+            //console.log("session from next auth",session)
             session.user.id = token.sub;
             return session;
           }
