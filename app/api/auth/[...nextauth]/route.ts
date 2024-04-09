@@ -1,6 +1,7 @@
 
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { signIn } from "next-auth/react";
 
 const handler = NextAuth({
     providers:[
@@ -22,7 +23,21 @@ const handler = NextAuth({
               }
         })
     ],
-    secret: process.env.NEXTAUTH_SECRET
+    secret: process.env.NEXTAUTH_SECRET,
+    //call backs are used to do some changes after the authorization 
+    callbacks:{
+    //jwt callbacks are used to add something into token etc
+          jwt:({token,user})=>{
+            console.log(token);
+            token.userId="changed user id"
+            return token;
+          },
+          //session call backs to add extra info to session
+          session:({session,token,user}:any)=>{
+            session.user.id = token.sub;
+            return session;
+          }
+    }
 })
 
 export const GET = handler;
