@@ -45,6 +45,7 @@ const handler = NextAuth({
             return session;
           }
     },
+    //making custom sigin page as default page
     pages:{
       signIn:"/signin"
     }

@@ -20,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        {/* wrapping the children of app componenet which is server side with custom provider which is having client side SessionProvider */}
         <Providers>
         {children}
         </Providers>
