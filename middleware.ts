@@ -8,7 +8,6 @@ export  function  middleware(req:NextRequest){
     console.log(req.nextUrl.pathname)
     //agar req ka url /admin se start hota hai toh usko signin route p redirect krdo
   if (req.nextUrl.pathname.startsWith('/admin')) {
-    console.log("inside admin")
     return NextResponse.redirect(new URL('/middlewareRoute', req.url))
   }
  
